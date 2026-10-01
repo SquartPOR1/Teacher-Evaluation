@@ -1,0 +1,2 @@
+<?php http_response_code(404); ?>
+<section class="empty-state"><span class="empty-icon">⌕</span><h1>Page not found</h1><p>The page may have moved or the address may be incorrect.</p><a class="button" href="<?= e(url('index.php')) ?>">Return to overview</a></section>

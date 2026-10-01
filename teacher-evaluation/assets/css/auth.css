@@ -1,0 +1,127 @@
+.app-guest {
+  --auth-ink: #203249;
+  --auth-muted: #687586;
+  --auth-line: #d9dfe5;
+  min-height: 100vh;
+  background: #f3f2ee;
+  color: var(--auth-ink);
+}
+
+.app-guest .topbar {
+  height: 68px;
+  padding-inline: clamp(18px, 4vw, 52px);
+  background: #fff;
+  border-bottom: 1px solid var(--auth-line);
+}
+
+.app-guest .brand {
+  gap: 10px;
+  color: var(--auth-ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.app-guest .brand-mark {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #183b5b;
+  border-radius: 5px;
+  background: #183b5b;
+  color: #f2d28b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+
+.app-guest .brand small {
+  display: none;
+}
+
+.app-guest .content-auth {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 42px 20px;
+  background: #f3f2ee;
+}
+
+.login-wrap.login-simple {
+  display: block;
+  width: min(420px, 100%);
+  min-height: 0;
+  margin: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.login-simple .login-card,
+.account-help-card {
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  padding: 30px;
+  border: 1px solid var(--auth-line);
+  border-top: 3px solid #183b5b;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 3px 12px rgb(32 50 73 / 4%);
+}
+
+.login-simple h1 {
+  margin: 0 0 5px;
+  color: var(--auth-ink);
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.login-simple .muted,
+.account-help-card .muted {
+  color: var(--auth-muted);
+}
+
+.login-simple .muted {
+  margin: 0 0 20px;
+}
+
+.login-simple .form-stack {
+  gap: 15px;
+}
+
+.login-simple .login-foot,
+.account-help-card .login-foot {
+  margin: 14px 0 0;
+}
+
+.login-simple .button:not(.button-primary) {
+  margin-top: 12px;
+}
+
+.app-guest .footer {
+  min-height: 42px;
+  padding: 12px clamp(18px, 4vw, 52px);
+  border-top: 1px solid var(--auth-line);
+  background: #fff;
+  color: #748091;
+  font-size: 11px;
+}
+
+@media (max-width: 560px) {
+  .app-guest .content-auth {
+    align-items: flex-start;
+    padding: 26px 16px;
+  }
+
+  .login-simple .login-card,
+  .account-help-card {
+    padding: 24px 20px;
+  }
+}

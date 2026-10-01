@@ -1,0 +1,1 @@
+<section class="empty-state"><span class="empty-icon">⛔</span><h1>Access denied</h1><p>You do not have permission to view this page.</p><a class="button" href="<?= e(url('index.php')) ?>">Return to overview</a></section>

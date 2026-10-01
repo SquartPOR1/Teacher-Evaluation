@@ -1,0 +1,2 @@
+<?php http_response_code(500); ?>
+<section class="empty-state"><span class="empty-icon">!</span><h1>Something went wrong</h1><p>Please try again later. Technical details are not shown for your protection.</p><a class="button" href="<?= e(url('index.php')) ?>">Return to overview</a></section>

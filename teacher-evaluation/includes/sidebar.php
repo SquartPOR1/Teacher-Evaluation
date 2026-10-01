@@ -1,0 +1,1 @@
+<?php // Navigation is rendered by header.php so it can share the authenticated layout. ?>
