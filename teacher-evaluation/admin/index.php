@@ -40,10 +40,18 @@ require __DIR__ . '/../includes/header.php';
     <section class="overview-hero">
         <div class="overview-hero-copy">
             <div class="eyebrow">OLPC-SMI &nbsp; / &nbsp; ADMINISTRATION</div>
-            <h1>Thoughtful feedback.<br><em>Better learning.</em></h1>
-            <p>Good day, <?= e(current_user()['name']) ?>. Your overview of the people, classes, and teaching feedback that shape the school year.</p>
+            <h1>Prepare the next<br><em>feedback cycle.</em></h1>
+            <p>Good day, <?= e(current_user()['name']) ?>. Review people, classes, and evaluation progress, then continue with the next setup step.</p>
             <a class="button button-primary" href="<?= e(url($nextSetupUrl)) ?>"><?= e($nextSetupLabel) ?> <span aria-hidden="true">↗</span></a>
         </div>
+        <figure class="overview-hero-art" data-overview-scene>
+            <canvas class="overview-scene-canvas" aria-hidden="true"></canvas>
+            <figcaption class="overview-art-caption">TEACHING FEEDBACK <span>FIELD STUDY</span></figcaption>
+            <div class="overview-art-controls" aria-label="Adjust illustration angle">
+                <button type="button" data-scene-turn="-1" aria-label="Turn evaluation sheet left" title="Turn left">‹</button>
+                <button type="button" data-scene-turn="1" aria-label="Turn evaluation sheet right" title="Turn right">›</button>
+            </div>
+        </figure>
         <div class="overview-hero-status">
             <span class="overview-status-label">CURRENT EVALUATION</span>
             <span class="overview-status-rule" aria-hidden="true"></span>
@@ -92,4 +100,5 @@ require __DIR__ . '/../includes/header.php';
         </section>
     </div>
 </div>
+<script type="module" src="<?= e(url('assets/js/hero-3d.js?v=1')) ?>"></script>
 <?php require __DIR__ . '/../includes/footer.php'; ?>

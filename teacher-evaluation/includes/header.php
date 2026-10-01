@@ -14,8 +14,8 @@ $schoolName = setting('school_name', APP_NAME);
   <meta name="theme-color" content="#153e75">
   <title><?= e($pageTitle) ?> · <?= e($schoolName) ?></title>
   <link rel="stylesheet" href="<?= e(url('assets/css/app.css')) ?>">
-  <?php if (!$user): ?><link rel="stylesheet" href="<?= e(url('assets/css/auth.css')) ?>"><?php endif; ?>
-  <?php if ($user): ?><link rel="stylesheet" href="<?= e(url('assets/css/luxury.css?v=3')) ?>"><?php endif; ?>
+  <?php if (!$user): ?><link rel="stylesheet" href="<?= e(url('assets/css/auth.css?v=2')) ?>"><?php endif; ?>
+  <?php if ($user): ?><link rel="stylesheet" href="<?= e(url('assets/css/luxury.css?v=5')) ?>"><?php endif; ?>
   <script defer src="<?= e(url('assets/js/app.js')) ?>"></script>
 </head>
 <body class="<?= $user ? 'app-user' : 'app-guest' ?>">

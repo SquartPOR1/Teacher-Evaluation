@@ -49,6 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('#evaluation-form');
   const progress = document.querySelector('#progress-label');
   if (form && progress) {
+    const progressCount = document.querySelector('#progress-count');
+    const progressBar = document.querySelector('.evaluation-progress [role="progressbar"]');
+    const progressFill = document.querySelector('#evaluation-progress-bar');
     const updateProgress = () => {
       const required = [...form.querySelectorAll('[required]')];
       const groups = new Map();
@@ -62,9 +65,31 @@ document.addEventListener('DOMContentLoaded', () => {
       ).length;
       const percent = groups.size ? Math.round((complete / groups.size) * 100) : 100;
       progress.textContent = `${percent}% complete`;
+      if (progressCount) progressCount.textContent = groups.size ? `${complete} of ${groups.size} answered` : 'No required questions';
+      progressBar?.setAttribute('aria-valuenow', String(percent));
+      if (progressFill) progressFill.style.width = `${percent}%`;
     };
     form.addEventListener('input', updateProgress);
     form.addEventListener('change', updateProgress);
     updateProgress();
+  }
+
+  const motionTargets = document.querySelectorAll(
+    '.app-user .overview-hero-copy, .app-user .overview-hero-art, .app-user .overview-hero-status, .app-user .overview-metrics, .app-user .overview-lower-grid, .app-user .page-heading, .app-user .stats-grid, .app-user .dashboard-grid, .app-user .two-column, .app-user .evaluation-progress, .app-user .panel, .app-guest .login-card, .app-guest .account-help-card, .app-guest .demo-intro, .app-guest .demo-preview-copy, .app-guest .demo-sample-card'
+  );
+  if (motionTargets.length && 'IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.body.classList.add('motion-ready');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+    motionTargets.forEach((target, index) => {
+      target.classList.add('motion-reveal');
+      target.style.setProperty('--reveal-order', String(Math.min(index, 5)));
+      revealObserver.observe(target);
+    });
   }
 });
