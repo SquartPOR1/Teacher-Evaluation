@@ -1,4 +1,5 @@
 /config.php
 /.env
+/.htaccess
 /uploads/*
 !/uploads/.gitkeep
